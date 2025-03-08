@@ -1,0 +1,26 @@
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
+
+# دالة لمعالجة الأمر /start
+def start(update: Update, context: CallbackContext):
+    update.message.reply_text('مرحباً! أنا بوتك الجديد. كيف يمكنني مساعدتك؟')
+
+def main():
+    # أدخلي التوكن الجديد هنا
+    TOKEN = '5839914555:AAGUxqy8N8cP-uWOZCHoJ1qo6-yLCW1iHWE'
+    
+    # إنشاء Updater وتمرير التوكن
+    updater = Updater(TOKEN, use_context=True)
+    
+    # الحصول على Dispatcher للتسجيل handlers
+    dp = updater.dispatcher
+
+    # تسجيل handlers
+    dp.add_handler(CommandHandler("start", start))
+
+    # بدء البوت
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
