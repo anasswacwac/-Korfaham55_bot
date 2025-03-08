@@ -1,0 +1,11 @@
+from telegram.ext import Updater
+
+# أدخلي التوكن الجديد هنا
+TOKEN = '6950474234:AAFGW-kFxGwdzz84BTTW0Gj5AiRUXASeQS0'
+
+# إنشاء Updater
+updater = Updater(TOKEN, use_context=True)
+
+# بدء البوت
+updater.start_polling()
+updater.idle()
